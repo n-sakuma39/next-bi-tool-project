@@ -1,0 +1,18 @@
+get:
+  tags:
+    - user
+  summary: ユーザー詳細を取得
+  parameters:
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+      description: ユーザーID
+      example: 123456-7890-aaaa-bcde-fghijk
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/user.yaml#/components/schemas/UserDetails'

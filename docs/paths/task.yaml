@@ -1,0 +1,42 @@
+get:
+  tags:
+    - task
+  summary: 案件一覧を取得
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/task.yaml#/components/schemas/Task'
+post:
+  tags:
+    - task
+  summary: ユーザーに割り当てられた案件を取得
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            userId:
+              type: string
+              description: ユーザーID
+              example: 123456-7890-aaaa-bcde-fghijk
+            taskIds:
+              type: array
+              description: 案件IDの配列
+              items:
+                type: string
+                description: 案件ID
+                example: 123456-7890-AAAA-BCDE-FGHIJK
+          required:
+            - userId
+            - taskIds
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/task.yaml#/components/schemas/TasksAssignmentUser'

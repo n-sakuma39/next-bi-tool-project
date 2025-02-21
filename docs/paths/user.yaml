@@ -1,0 +1,40 @@
+get:
+  tags:
+    - user
+  summary: ユーザー一覧を取得
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/user.yaml#/components/schemas/User'
+
+post:
+  tags:
+    - user
+  summary: 案件に割り当てられたユーザーを取得
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            assignmentIds:
+              type: array
+              description: 課題IDの配列
+              items:
+                type: string
+                description: 課題ID
+                example: 123456-7890-AAAA-BCDE-FGHIJK
+          required:
+            - assignmentIds
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/user.yaml#/components/schemas/UsersAssignmentTask'

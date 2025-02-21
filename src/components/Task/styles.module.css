@@ -1,0 +1,228 @@
+/* TASKS */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listHeader,
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 8px;
+}
+
+.listHeader {
+  background: none;
+}
+
+.listHeader span,
+.listItem span {
+  flex: 1;
+  text-align: center;
+}
+
+.listHeader .clickable {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.listItem {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.listItem:hover {
+  background-color: #f0f0f0;
+}
+
+.listItem a {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.listItem a span {
+  flex: 1;
+  text-align: center;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* USERS */
+#userBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.usersFilterBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.useSelect {
+  margin-right: 30px;
+}
+
+.useSelect ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+}
+
+.useSelect > * {
+  font-size: 0.95rem;
+}
+
+.useSelect span {
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.useSelect span:hover {
+  opacity: 0.5;
+}
+
+.userList {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.userList ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.userItem {
+  flex: 0 0 auto;
+  width: 220px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.userItem img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.userItem div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  padding: 15px 10px;
+  text-align: left;
+}
+
+.userItem div span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.reloadIcon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+
+/* 業務過多のユーザー */
+.toaster {
+  position: fixed;
+  bottom: 10px;
+  right: 17%;
+  background-color: pink;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid rgb(237, 93, 117);
+  z-index: 9999;
+}
+
+.toasterText {
+  font-size: 0.85rem;
+  color: rgb(240, 117, 138);
+  font-weight: bold;
+}
+
+.userIcons {
+  display: flex;
+  margin-left: 10px;
+}
+
+.userIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.swiper {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.userItem {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.userItem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.userIconLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.userIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  object-fit: cover;
+}
+
+.userIcon:hover {
+  opacity: 0.8;
+}
+
+.useSelect span.active {
+  border-bottom: 2px solid #000;
+  font-weight: bold;
+}

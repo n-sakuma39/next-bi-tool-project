@@ -1,0 +1,86 @@
+components:
+  schemas:
+    UserBase:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ユーザーID
+          example: 123456-7890-aaaa-bcde-fghijk
+        username:
+          type: string
+          description: ユーザー名
+          example: ユーザー名
+        avatar:
+          type: string
+          format: url
+          description: プロフィール画像のURL
+          example: https://example.com/avatar.jpg
+        job:
+          type: string
+          enum: ['director', 'designer', 'frontend', 'backend']
+          description: |
+            職種:
+            - director: ディレクター
+            - designer: デザイナー
+            - frontend: フロントエンドエンジニア
+            - backend: バックエンドエンジニア
+      required:
+        - id
+        - username
+        - avatar
+        - job
+
+    User:
+      allOf:
+        - $ref: '#/components/schemas/UserBase'
+        - type: object
+          properties:
+            totalOccupancyRate:
+              type: number
+              description: ユーザーに割り当てられた案件の稼働率の合計
+              multipleOf: 0.1
+              example: 99.9
+          required:
+            - totalOccupancyRate
+
+    UserDetails:
+      allOf:
+        - $ref: '#/components/schemas/UserBase'
+        - type: object
+          properties:
+            description:
+              type: string
+              description: 説明文
+              example: ユーザーの説明文が入ります
+            taskIds:
+              type: array
+              description: ユーザーに割り当てられた案件
+              items:
+                type: string
+                description: 案件ID
+                example: 123456-7890-aaaa-bcde-fghijk
+          required:
+            - description
+            - taskIds
+
+    UsersAssignmentTask:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ユーザーID
+          example: 123456-7890-aaaa-bcde-fghijk
+        username:
+          type: string
+          description: ユーザー名
+          example: ユーザー名
+        avatar:
+          type: string
+          format: url
+          description: プロフィール画像のURL
+          example: https://example.com/avatar.jpg
+      required:
+        - id
+        - username
+        - avatar

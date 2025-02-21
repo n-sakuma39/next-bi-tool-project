@@ -1,0 +1,19 @@
+openapi: 3.0.0
+info:
+  title: next-bi-practices
+  version: 1.0.0
+  description: next-bi-practices
+servers:
+  - url: http://localhost:18080
+tags:
+  - name: task
+  - name: user
+paths:
+  /task:
+    $ref: ./paths/task.yaml
+  /task/{taskId}:
+    $ref: ./paths/taskDetails.yaml
+  /user:
+    $ref: ./paths/user.yaml
+  /user/{userId}:
+    $ref: ./paths/userDetails.yaml

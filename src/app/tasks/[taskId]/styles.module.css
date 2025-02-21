@@ -1,0 +1,68 @@
+.taskInfo {
+  margin-bottom: 2rem;
+}
+
+.taskName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.infoRow {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.infoItem {
+  font-size: 1rem;
+  color: #666;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.noAssignments {
+  margin: 30px 0 100px 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.chartTitle {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  align-self: flex-start;
+}
+
+.description {
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+/* スマホ表示 */
+@media (max-width: 767px) {
+  .mainContent {
+    height: auto;
+    overflow: visible;
+  }
+
+  .taskInfo {
+    padding: 0 15px;
+  }
+
+  .chartContainer {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 15px;
+    margin-bottom: 2rem;
+  }
+
+  .chartContainer > div {
+    min-width: 1100px;
+  }
+}

@@ -1,0 +1,66 @@
+/* USERS */
+.usersFilterBox {
+  margin-bottom: 2rem;
+}
+
+.useSelect ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.useSelect span {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.useSelect span:hover {
+  background-color: #f0f0f0;
+}
+
+.useSelect span.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.reloadIcon {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.swiper {
+  padding: 1rem;
+}
+
+.userItem {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.userItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+.userItem div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.userItem span {
+  display: block;
+}
+
+.userItem span:first-child {
+  font-weight: bold;
+}

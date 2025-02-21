@@ -1,0 +1,322 @@
+/* TASKS */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.listHeader,
+.listItem {
+  display: grid;
+  grid-template-columns: 35% 120px 120px 200px 200px;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.listHeader span,
+.listItem span {
+  text-align: center;
+}
+
+.listHeader span:first-child,
+.listItem span:first-child {
+  text-align: left;
+}
+
+.listHeader {
+  background: none;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.listHeader .clickable {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.listHeader .clickable:first-child {
+  text-align: left;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.listItem:hover {
+  background-color: #e8f0fe;
+}
+
+.listHeader button:first-child,
+.listItem span:first-child {
+  text-align: left;
+}
+
+.listItem a {
+  display: grid;
+  grid-template-columns: 35% 120px 120px 200px 200px;
+  width: 100%;
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* USERS */
+#userBox {
+  width: 100%;
+}
+
+.usersFilterBox {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 15px;
+}
+
+.useSelect {
+  margin-right: 30px;
+}
+
+.useSelect ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 0;
+  min-width: 800px;
+}
+
+.useSelect > * {
+  font-size: 0.95rem;
+}
+
+.useSelect span {
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.useSelect span:hover {
+  opacity: 0.5;
+}
+
+.userList {
+  display: flex;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.userList ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.userItem {
+  flex: 0 0 auto;
+  width: 220px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.userItem img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.userItem div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  padding: 15px 10px;
+  text-align: left;
+}
+
+.userItem div span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.reloadIcon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+
+/* 業務過多のユーザー */
+.toaster {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: pink;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid rgb(237, 93, 117);
+  z-index: 9999;
+}
+
+.toasterText {
+  font-size: 0.9rem;
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+.userIcons {
+  display: flex;
+  margin-left: 10px;
+}
+
+.userIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 15px;
+  vertical-align: bottom;
+}
+
+.swiper {
+  padding: 20px 0;
+}
+
+.userItem {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.userItem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.userIconLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.userIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  object-fit: cover;
+}
+
+.userIcon:hover {
+  opacity: 0.8;
+}
+
+.useSelect span.active {
+  border-bottom: 2px solid #000;
+  font-weight: bold;
+}
+
+/* スマホ表示 */
+@media (max-width: 767px) {
+  #taskBox {
+    width: 100%;
+  }
+
+  .list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 15px 15px 15px;
+  }
+
+  .listHeader,
+  .listItem {
+    width: 800px;
+  }
+
+  #userBox {
+    width: 100%;
+  }
+
+  .usersFilterBox {
+    padding: 0 1.5rem 1rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .useSelect ul {
+    min-width: 1100px;
+  }
+
+  .swiper {
+    width: 100%;
+    padding: 20px 30px;
+  }
+
+  .swiper-slide {
+    width: 260px !important;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+  }
+
+  .userItem {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .userItem img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .userItem div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .userItem div span {
+    display: block;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}

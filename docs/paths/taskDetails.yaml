@@ -1,0 +1,18 @@
+get:
+  tags:
+    - task
+  summary: 案件詳細を取得
+  parameters:
+    - in: path
+      name: taskId
+      required: true
+      schema:
+        type: string
+      description: 案件ID
+      example: 123456-7890-aaaa-bcde-fghijk
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/task.yaml#/components/schemas/TaskDetails'

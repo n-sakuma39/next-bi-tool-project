@@ -1,0 +1,238 @@
+.container {
+  width: 100%;
+}
+
+.adminNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.taskList {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listHeader {
+  display: grid;
+  grid-template-columns: 40px 27% 10% 10% 15% 15% 20%;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  align-items: center;
+}
+
+.listHeader span {
+  text-align: center;
+}
+
+.listHeader span:nth-child(2) {
+  text-align: left;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 40px 27% 10% 10% 15% 15% 20%;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+}
+
+.listItem span {
+  text-align: center;
+}
+
+.listItem span:nth-child(2) {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.editButton,
+.deleteButton {
+  min-width: 64px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.editButton {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.deleteButton {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.clickable:hover {
+  color: #3b82f6;
+}
+
+.addButton {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.addButton:hover {
+  background-color: #059669;
+}
+
+.listHeader span:first-child {
+  text-align: left;
+}
+
+.listHeader span:last-child {
+  text-align: center;
+}
+
+.listHeader > span:nth-child(2),
+.listItem > span:nth-child(2) {
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.listHeader > span,
+.listItem > span {
+  text-align: center;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.listItem span:first-child {
+  text-align: left;
+}
+
+.bulkActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selectAllLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.selectAllLabel input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  margin: 0;
+}
+
+.selectAllLabel input[type="checkbox"]:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.selectAllLabel input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  transform: rotate(45deg);
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+}
+
+.selectAllLabel input[type="checkbox"]:hover {
+  border-color: #3b82f6;
+}
+
+.selectAllLabel input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.bulkDeleteButton {
+  padding: 0.5rem 1rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.bulkDeleteButton:hover {
+  background-color: #b91c1c;
+}
+
+.deleteItem {
+  display: block;
+  margin-left: 1rem;
+  color: #4b5563;
+}
+
+/* スマホ表示 */
+@media (max-width: 767px) {
+  .adminNav {
+    padding: 0 0.7rem;
+    width: 100%;
+  }
+
+  .taskList {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .listHeader,
+  .listItem {
+    width: 1100px;
+  }
+}

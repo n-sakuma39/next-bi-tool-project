@@ -1,0 +1,145 @@
+components:
+  schemas:
+    TaskBase:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 案件ID
+          example: 123456-7890-aaaa-bcde-fghijk
+        name:
+          type: string
+          description: 案件名
+          example: 案件名
+        priority:
+          type: string
+          enum: ['high', 'middle', 'low']
+          description: |
+            優先度:
+            - high: 高
+            - middle: 中
+            - low: 低
+        status:
+          type: string
+          enum: ['waiting', 'processing', 'completed', 'done']
+          description: |
+            状態:
+            - waiting: 未対応
+            - processing: 対応中
+            - completed: 対応済み
+            - done: 完了
+        startDate:
+          type: string
+          format: date-time
+          description: 開始日（YYYY-MM-DDTHH:MM:SS.SSSZ）
+        endDate:
+          type: string
+          format: date-time
+          description: 期限日（YYYY-MM-DDTHH:MM:SS.SSSZ）
+      required:
+        - id
+        - name
+        - priority
+        - status
+        - description
+        - startDate
+        - endDate
+    TaskAssignment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 子課題ID
+          example: 123456-7890-AAAA-BCDE-FGHIJK
+        assignmentName:
+          type: string
+          description: 子課題名
+          example: 子課題名
+        jobType:
+          type: string
+          enum: ['director', 'designer', 'frontend', 'backend']
+          description: |
+            職種:
+            - director: ディレクター
+            - designer: デザイナー
+            - frontend: フロントエンドエンジニア
+            - backend: バックエンドエンジニア
+        startDate:
+          type: string
+          format: date-time
+          description: 開始日（YYYY-MM-DDTHH:MM:SS.SSSZ）
+        endDate:
+          type: string
+          format: date-time
+          description: 期限日（YYYY-MM-DDTHH:MM:SS.SSSZ）
+        assignmentId:
+          type: string
+          description: 案件に割り当てられたユーザーID
+          example: 000000-0000-AAAA-BCDE-FGHIJK
+        status:
+          type: string
+          enum: ['waiting', 'processing', 'completed', 'done']
+          description: |
+            状態:
+            - waiting: 未対応
+            - processing: 対応中
+            - completed: 対応済み
+            - done: 完了
+      required:
+        - id
+        - assignmentName
+        - jobType
+        - startDate
+        - endDate
+        - assignmentId
+        - status
+    Task:
+      allOf:
+        - $ref: '#/components/schemas/TaskBase'
+    TaskDetails:
+      allOf:
+        - $ref: '#/components/schemas/TaskBase'
+        - type: object
+          properties:
+            description:
+              type: string
+              description: 説明文
+              example: 案件の説明文が入ります
+            assignment:
+              type: array
+              items:
+                $ref: '#/components/schemas/TaskAssignment'
+          required:
+            - assignment
+    TaskWithOccupancy:
+      allOf:
+        - $ref: '#/components/schemas/TaskBase'
+        - type: object
+          properties:
+            occupancyRate:
+              type: number
+              description: ユーザーに割り当てられた案件の稼働率
+              multipleOf: 0.1
+              example: 99.9
+      required:
+        - occupancyRate
+    TasksAssignmentUser:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ユーザーID
+          example: 123456-7890-aaaa-bcde-fghijk
+        totalOccupancyRate:
+          type: number
+          description: ユーザーに割り当てられた案件の稼働率の合計
+          multipleOf: 0.1
+          example: 99.9
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskWithOccupancy'
+      required:
+        - id
+        - totalOccupancyRate
+        - tasks
