@@ -5,7 +5,13 @@ import dns from 'node:dns'
 dns.setDefaultResultOrder('ipv4first')
 
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
+import { fileURLToPath } from 'url'
+import path from 'path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
 const withVanillaExtract = createVanillaExtractPlugin()
+
 const nextConfig = {
   // @see https://github.com/mswjs/msw/issues/1877
   webpack: (config, { isServer }) => {
@@ -25,6 +31,16 @@ const nextConfig = {
         config.resolve.alias['msw/node'] = false
       }
     }
+
+    // キャッシュ設定を修正（絶対パスを使用）
+    config.cache = {
+      type: 'filesystem',
+      buildDependencies: {
+        config: [path.resolve(__dirname, 'next.config.mjs')]
+      },
+      cacheDirectory: path.resolve(__dirname, '.next/cache')
+    }
+
     return config
   },
   images: {
@@ -50,10 +66,6 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: [
-      'loremflickr.com',
-      'api.dicebear.com'
-    ],
   },
 }
 export default withVanillaExtract(nextConfig)
