@@ -4,6 +4,11 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './styles.module.css'
 
+/**
+ * ログインページコンポーネント
+ * 注意: この実装はポートフォリオ用のデモ認証です。
+ * 本番環境では、Next-AuthやJWTなどを使用したより堅牢な認証システムが必要です。
+ */
 export default function LoginPage() {
   const router = useRouter()
   const [userId, setUserId] = useState('')
@@ -13,10 +18,12 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (userId === 'admin' && password === 'admin') {
+    if (userId === process.env.NEXT_PUBLIC_ADMIN_ID && 
+        password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       localStorage.setItem('userRole', 'admin')
       router.push('/admin')
-    } else if (userId === 'user' && password === 'user') {
+    } else if (userId === process.env.NEXT_PUBLIC_USER_ID && 
+               password === process.env.NEXT_PUBLIC_USER_PASSWORD) {
       localStorage.setItem('userRole', 'user')
       router.push('/')
     } else {
