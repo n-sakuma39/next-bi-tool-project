@@ -173,7 +173,9 @@ export default function AddUser() {
           {error && <p className="admin-form-error">{error}</p>}
 
           <div className="admin-form-group">
-            <label htmlFor="username">■名前 *</label>
+            <label htmlFor="username">
+              ■氏名 <span className="required">*</span>
+            </label>
             <input
               type="text"
               id="username"
@@ -186,7 +188,9 @@ export default function AddUser() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="job">■職種 *</label>
+            <label htmlFor="job">
+              ■職種 <span className="required">*</span>
+            </label>
             <select
               id="job"
               name="job"

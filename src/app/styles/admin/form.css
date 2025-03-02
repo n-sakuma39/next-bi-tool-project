@@ -17,7 +17,8 @@ textarea {
 
 .admin-form-title {
   font-size: 1.5rem;
-  font-weight: bold;
+  color: #1a4e9f;
+  margin: 0;
 }
 
 .admin-form-back-button {
@@ -34,10 +35,10 @@ textarea {
 }
 
 .admin-form-main {
-  background-color: white;
+  background-color: #fbfafa;
   padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
 }
 
 .admin-form {
@@ -52,17 +53,16 @@ textarea {
 .admin-form-group label {
   display: block;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #374151;
+  margin-bottom: 0.35rem;
+  color: #74747b;
 }
 
 .admin-form-input,
 .admin-form-textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
+  padding: 0.8rem;
+  border: 1px solid #ccced1;
+  font-size: 0.9rem;
 }
 
 .admin-form-textarea {
@@ -88,7 +88,7 @@ textarea {
 .admin-form-submit-button {
   padding: 0.5rem 2rem;
   background-color: #10b981;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 0.375rem;
   cursor: pointer;
@@ -108,6 +108,7 @@ textarea {
   border-radius: 0.375rem;
   font-size: 0.875rem;
   transition: background-color 0.2s;
+  border: 1px solid #d2d0d0;
 }
 
 .admin-form-cancel-button:hover {
@@ -131,25 +132,25 @@ textarea {
 }
 
 .avatar-image {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
   object-fit: cover;
-  border: 1px solid #ddd;
 }
 
+.avatar-image,
 .avatar-placeholder {
   width: 75px;
   height: 75px;
   border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.avatar-placeholder {
   background-color: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  font-weight: bold;
+  font-weight: 700;
   color: #666;
-  border: 1px solid #ddd;
   text-align: center;
 }
 
@@ -161,7 +162,7 @@ textarea {
 .regenerate-button {
   padding: 6px 12px;
   background-color: #666;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -178,10 +179,16 @@ textarea {
 }
 
 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1em;
   padding-right: 2.5rem;
+}
+
+.required {
+  color: #dc2626;
 }

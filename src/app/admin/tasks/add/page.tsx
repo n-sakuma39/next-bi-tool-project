@@ -82,7 +82,9 @@ export default function AddTaskPage() {
           {error && <p className="admin-form-error">{error}</p>}
 
           <div className="admin-form-group">
-            <label htmlFor="taskName">■案件名 *</label>
+            <label htmlFor="taskName">
+              ■案件名 <span className="required">*</span>
+            </label>
             <input
               type="text"
               id="taskName"
@@ -95,7 +97,9 @@ export default function AddTaskPage() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="priority">■優先度 *</label>
+            <label htmlFor="priority">
+              ■優先度 <span className="required">*</span>
+            </label>
             <select
               id="priority"
               name="priority"
@@ -117,7 +121,9 @@ export default function AddTaskPage() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="status">■状態 *</label>
+            <label htmlFor="status">
+              ■状態 <span className="required">*</span>
+            </label>
             <select
               id="status"
               name="status"
@@ -139,7 +145,9 @@ export default function AddTaskPage() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="startDate">■開始日 *</label>
+            <label htmlFor="startDate">
+              ■開始日 <span className="required">*</span>
+            </label>
             <input
               type="date"
               id="startDate"
@@ -152,7 +160,9 @@ export default function AddTaskPage() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="endDate">■期限日 *</label>
+            <label htmlFor="endDate">
+              ■期限日 <span className="required">*</span>
+            </label>
             <input
               type="date"
               id="endDate"
