@@ -51,7 +51,7 @@ textarea {
 
 .admin-form-group label {
   display: block;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 0.5rem;
   color: #374151;
 }
