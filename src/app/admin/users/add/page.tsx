@@ -156,7 +156,7 @@ export default function AddUser() {
   return (
     <div className="admin-form-container">
       <header className="admin-form-header">
-        <h1 className="admin-form-title">ユーザー追加</h1>
+        <h1 className="admin-form-title">新規ユーザーを追加する</h1>
         <Link
           href="/admin"
           className="admin-form-back-button"
@@ -173,7 +173,7 @@ export default function AddUser() {
           {error && <p className="admin-form-error">{error}</p>}
 
           <div className="admin-form-group">
-            <label htmlFor="username">■ユーザー名 *</label>
+            <label htmlFor="username">■名前 *</label>
             <input
               type="text"
               id="username"

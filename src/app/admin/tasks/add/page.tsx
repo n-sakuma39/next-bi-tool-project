@@ -65,7 +65,7 @@ export default function AddTaskPage() {
   return (
     <div className="admin-form-container">
       <header className="admin-form-header">
-        <h1 className="admin-form-title">案件追加</h1>
+        <h1 className="admin-form-title">新規案件を追加する</h1>
         <Link
           href="/admin"
           className="admin-form-back-button"
