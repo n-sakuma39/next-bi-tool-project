@@ -27,20 +27,20 @@ type UserFormData = {
 // アバター画像のURLリスト
 const AVATAR_URLS = {
   avatars: [
-    'https://api.dicebear.com/7.x/avataaars/svg',    // 人物アバター
-    'https://api.dicebear.com/7.x/micah/svg',        // シンプル人物
-    'https://api.dicebear.com/7.x/personas/svg',     // カジュアル人物
+    'https://api.dicebear.com/7.x/avataaars/svg', // 人物アバター
+    'https://api.dicebear.com/7.x/micah/svg', // シンプル人物
+    'https://api.dicebear.com/7.x/personas/svg', // カジュアル人物
   ],
   animals: [
-    'https://loremflickr.com/128/128/animal',        // 動物の写真
-    'https://loremflickr.com/128/128/pet',           // ペットの写真
-    'https://loremflickr.com/128/128/cute-animal'    // かわいい動物の写真
+    'https://loremflickr.com/128/128/animal', // 動物の写真
+    'https://loremflickr.com/128/128/pet', // ペットの写真
+    'https://loremflickr.com/128/128/cute-animal', // かわいい動物の写真
   ],
   nature: [
-    'https://loremflickr.com/128/128/nature',        // 自然の風景
-    'https://loremflickr.com/128/128/landscape',     // 風景
-    'https://loremflickr.com/128/128/scenery'        // 景色
-  ]
+    'https://loremflickr.com/128/128/nature', // 自然の風景
+    'https://loremflickr.com/128/128/landscape', // 風景
+    'https://loremflickr.com/128/128/scenery', // 景色
+  ],
 }
 
 export default function AddUser() {
@@ -65,11 +65,10 @@ export default function AddUser() {
   const generateAvatarByCategory = useCallback((category: 'avatars' | 'animals' | 'nature') => {
     const urls = AVATAR_URLS[category]
     const randomUrl = urls[Math.floor(Math.random() * urls.length)]
-    
+
     // DiceBearはseedを使用、LoremFlickrは直接URLを使用
-    const newAvatarUrl = category === 'avatars'
-      ? `${randomUrl}?seed=${faker.string.alphanumeric(8)}`
-      : `${randomUrl}?random=${Math.random()}`  // キャッシュ回避用のランダムパラメータ
+    const newAvatarUrl =
+      category === 'avatars' ? `${randomUrl}?seed=${faker.string.alphanumeric(8)}` : `${randomUrl}?random=${Math.random()}` // キャッシュ回避用のランダムパラメータ
 
     setUserFormData((prev) => ({
       ...prev,
@@ -174,7 +173,7 @@ export default function AddUser() {
           {error && <p className="admin-form-error">{error}</p>}
 
           <div className="admin-form-group">
-            <label htmlFor="username">ユーザー名 *</label>
+            <label htmlFor="username">■ユーザー名 *</label>
             <input
               type="text"
               id="username"
@@ -187,7 +186,7 @@ export default function AddUser() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="job">職種 *</label>
+            <label htmlFor="job">■職種 *</label>
             <select
               id="job"
               name="job"
@@ -209,105 +208,7 @@ export default function AddUser() {
           </div>
 
           <div className="admin-form-group">
-            <label htmlFor="description">説明</label>
-            <textarea
-              id="description"
-              name="description"
-              value={userFormData.description}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              rows={4}
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="employmentDate">入社日</label>
-            <input
-              type="date"
-              id="employmentDate"
-              name="employmentDate"
-              value={userFormData.employmentDate}
-              onChange={handleChange}
-              className="admin-form-input"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="department">部署</label>
-            <input
-              type="text"
-              id="department"
-              name="department"
-              value={userFormData.department}
-              onChange={handleChange}
-              className="admin-form-input"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="employeeId">社員番号</label>
-            <input
-              type="text"
-              id="employeeId"
-              name="employeeId"
-              value={userFormData.employeeId}
-              onChange={handleChange}
-              className="admin-form-input"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="email">メールアドレス</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={userFormData.email}
-              onChange={handleChange}
-              className="admin-form-input"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="skills">スキルセット</label>
-            <input
-              type="text"
-              id="skills"
-              name="skills"
-              value={Array.isArray(userFormData.skills) ? userFormData.skills.join(', ') : ''}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="カンマ区切りで入力（例：React, TypeScript, Next.js）"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="projectHistory">プロジェクト履歴</label>
-            <textarea
-              id="projectHistory"
-              name="projectHistory"
-              value={userFormData.projectHistory}
-              onChange={handleChange}
-              className="admin-form-textarea"
-              rows={4}
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label htmlFor="certifications">保有資格</label>
-            <input
-              type="text"
-              id="certifications"
-              name="certifications"
-              value={Array.isArray(userFormData.certifications) ? userFormData.certifications.join(', ') : ''}
-              onChange={handleChange}
-              className="admin-form-input"
-              placeholder="カンマ区切りで入力（例：基本情報技術者, AWS認定）"
-            />
-          </div>
-
-          <div className="admin-form-group">
-            <label>アバター画像</label>
+            <label>■アバター画像（※何も選択しない場合はランダムで画像が生成されます）</label>
             <div className="avatar-preview">
               {avatarPreview ? (
                 <img
@@ -321,7 +222,9 @@ export default function AddUser() {
                 />
               ) : (
                 <div className="avatar-placeholder">
-                  画像<br />読み込み中...
+                  画像
+                  <br />
+                  読み込み中...
                 </div>
               )}
               <div className="avatar-buttons">
@@ -348,6 +251,104 @@ export default function AddUser() {
                 </button>
               </div>
             </div>
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="employmentDate">■入社日</label>
+            <input
+              type="date"
+              id="employmentDate"
+              name="employmentDate"
+              value={userFormData.employmentDate}
+              onChange={handleChange}
+              className="admin-form-input"
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="department">■部署</label>
+            <input
+              type="text"
+              id="department"
+              name="department"
+              value={userFormData.department}
+              onChange={handleChange}
+              className="admin-form-input"
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="employeeId">■社員番号</label>
+            <input
+              type="text"
+              id="employeeId"
+              name="employeeId"
+              value={userFormData.employeeId}
+              onChange={handleChange}
+              className="admin-form-input"
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="email">■メールアドレス</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={userFormData.email}
+              onChange={handleChange}
+              className="admin-form-input"
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="skills">■スキルセット</label>
+            <input
+              type="text"
+              id="skills"
+              name="skills"
+              value={Array.isArray(userFormData.skills) ? userFormData.skills.join(', ') : ''}
+              onChange={handleChange}
+              className="admin-form-input"
+              placeholder="カンマ区切りで入力（例：React, TypeScript, Next.js）"
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="projectHistory">■プロジェクト履歴</label>
+            <textarea
+              id="projectHistory"
+              name="projectHistory"
+              value={userFormData.projectHistory}
+              onChange={handleChange}
+              className="admin-form-textarea"
+              rows={4}
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="certifications">■保有資格</label>
+            <input
+              type="text"
+              id="certifications"
+              name="certifications"
+              value={Array.isArray(userFormData.certifications) ? userFormData.certifications.join(', ') : ''}
+              onChange={handleChange}
+              className="admin-form-input"
+              placeholder="カンマ区切りで入力（例：基本情報技術者, AWS認定）"
+            />
+          </div>
+
+          <div className="admin-form-group">
+            <label htmlFor="description">■その他</label>
+            <textarea
+              id="description"
+              name="description"
+              value={userFormData.description}
+              onChange={handleChange}
+              className="admin-form-textarea"
+              rows={4}
+            />
           </div>
 
           <div className="admin-form-button-group">
