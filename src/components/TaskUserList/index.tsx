@@ -9,16 +9,10 @@ import styles from './styles.module.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import '@/app/swiperCustom.css'
-import type { Task, User } from '@/types/type'
-import { useTaskContext } from '@/contexts/TaskContext'
-import { 
-  JOB_NAME_MAP, 
-  PRIORITY_MAP, 
-  STATUS_MAP, 
-  PRIORITY_ORDER, 
-  STATUS_ORDER 
-} from '@/constants/maps'
 import { SwitchPanel } from '@/components/elements/SwitchPanel'
+import { JOB_NAME_MAP, PRIORITY_MAP, PRIORITY_ORDER, STATUS_MAP, STATUS_ORDER } from '@/constants/maps'
+import { useTaskContext } from '@/contexts/TaskContext'
+import type { Task, User } from '@/types/type'
 
 // 型定義を追加
 type SortField = 'priority' | 'status' | 'startDate' | 'endDate'
@@ -52,7 +46,7 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
 
   const handlePanelChange = async (showUsersPanel: boolean) => {
     setShowPanel(showUsersPanel)
-    
+
     if (showUsersPanel && (!users || users.length === 0)) {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/user`)
@@ -62,7 +56,7 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
         console.error('Error fetching users:', error)
       }
     }
-    
+
     if (showUsersPanel) {
       setSelectedJob(null)
     } else {
@@ -71,9 +65,7 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
     }
   }
 
-  const filteredUsers = selectedJob 
-    ? users.filter((user) => JOB_NAME_MAP[user.job as keyof typeof JOB_NAME_MAP] === selectedJob) 
-    : users
+  const filteredUsers = selectedJob ? users.filter((user) => JOB_NAME_MAP[user.job as keyof typeof JOB_NAME_MAP] === selectedJob) : users
 
   // 日付フォーマット関数
   const formatDate = (dateString: string) => {
@@ -129,7 +121,10 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
   const overworkedUsers = getOverworkedUsers(users)
 
   const tasksContent = (
-    <div id="taskBox" data-testid="taskBox">
+    <div
+      id="taskBox"
+      data-testid="taskBox"
+    >
       <ul className={styles.list}>
         <li className={styles.listHeader}>
           <span>案件名</span>
@@ -189,7 +184,10 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
   )
 
   const usersContent = (
-    <div id="userBox" data-testid="userBox">
+    <div
+      id="userBox"
+      data-testid="userBox"
+    >
       <div className={styles.usersFilterBox}>
         <div className={styles.useSelect}>
           <ul>
@@ -237,12 +235,24 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
         modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={'auto'}
+        breakpoints={{
+          // PC画面
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          // スマホ画面
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+        }}
         navigation
         className={styles.swiper}
       >
         {filteredUsers.map((user) => (
           <SwiperSlide key={user.id}>
-            <div 
+            <div
               className={styles.userCard}
               data-testid="user-card"
               data-username={user.username}
@@ -280,18 +290,21 @@ export function TaskUserList({ initialTasks, initialUsers }: Props) {
         secondPanelContent={usersContent}
       />
       {overworkedUsers.length > 0 && (
-        <div className={styles.toaster} data-testid="overworked-toaster">
+        <div
+          className={styles.toaster}
+          data-testid="overworked-toaster"
+        >
           <span className={styles.toasterText}>業務過多のユーザー</span>
           <div className={styles.userIcons}>
             {overworkedUsers.map((user) => (
-              <Link 
-                key={user.id} 
+              <Link
+                key={user.id}
                 href={`/users/${user.id}`}
                 className={styles.userIconLink}
               >
-                <img 
-                  src={user.avatar} 
-                  alt={user.username} 
+                <img
+                  src={user.avatar}
+                  alt={user.username}
                   className={styles.userIcon}
                 />
               </Link>

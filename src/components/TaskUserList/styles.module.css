@@ -90,10 +90,6 @@
   padding-bottom: 15px;
 }
 
-.useSelect {
-  margin-right: 30px;
-}
-
 .useSelect ul {
   display: flex;
   align-items: center;
@@ -237,6 +233,13 @@
 .useSelect span.active {
   border-bottom: 2px solid #000;
   font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .usersFilterBox {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /* スマホ表示 */
